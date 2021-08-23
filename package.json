@@ -1,0 +1,22 @@
+{
+  "name": "readme_generator-wk9",
+  "version": "1.0.0",
+  "description": "README generator using node",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DMosca2021/README_generator-wk9.git"
+  },
+  "author": "Devin Mosca",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DMosca2021/README_generator-wk9/issues"
+  },
+  "homepage": "https://github.com/DMosca2021/README_generator-wk9#readme",
+  "dependencies": {
+    "inquirer": "^8.1.2"
+  }
+}
