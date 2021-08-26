@@ -3,7 +3,7 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 const util = require('util');
-// const generateMarkdown = require("./assets/generateMarkdown.js")
+const generateMarkdown = require("./assets/generateMarkdown.js")
 
 const writeFileAsync = util.promisify(fs.writeFile);
 
@@ -11,7 +11,6 @@ const writeFileAsync = util.promisify(fs.writeFile);
 const questions = [
     "Project Title:",
     "Description:",
-    "Table of contents:",
     "Installation:",
     "Usage:",
     "Credits:",
@@ -34,39 +33,34 @@ const promptUser = () => {
     },
     {
       type: 'input',
-      name: 'contents',
+      name: 'install',
       message: questions[2],
     },
     {
       type: 'input',
-      name: 'install',
+      name: 'usage',
       message: questions[3],
     },
     {
       type: 'input',
-      name: 'usage',
-      message: questions[4],
-    },
-    {
-      type: 'input',
       name: 'credits',
-      message: questions[5],
+      message: questions[4],
     },
     {
       type: 'list',
       name: 'license',
-      message: questions[6],
+      message: questions[5],
       choices: ["Apache license 2.0", "Artistic license 2.0", "Boost Software License 1.0", "BSD 2-clause Simplified license", "BSD 3-clause New or Revised license", "Creative Commons Zero v1.0 Universal", "Creative Commons Attribution 4.0", "Creative Commons Attribution Share Alike 4.0", "Do What The F*ck You Want To Public License", "Eclipse Public License 1.0", "GNU Affero General Public License v3.0", "GNU General Public License v2.0", "GNU General Public License v3.0", "GNU Lesser General Public License v3.0", "ISC", "MIT", "Mozilla Public License 2.0", "SIL Open Font License 1.1", "The Unlicense", "zLib License"]
     },
     {
       type: 'input',
       name: 'contribute',
-      message: questions[7],
+      message: questions[6],
     },
     {
       type: 'input',
       name: 'tests',
-      message: questions[8],
+      message: questions[7],
     },
   ]);
 };
@@ -75,7 +69,7 @@ const promptUser = () => {
 // TODO: Create a function to initialize app
 const init = () => {
   promptUser()
-    .then((answers) => writeFileAsync('README.md', generateMarkdown(answers)))
+    .then((data) => writeFileAsync('README.md', generateMarkdown(data)))
     .then(() => console.log('Successfully wrote to README.md'))
     .catch((err) => console.error(err));
 };
