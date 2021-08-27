@@ -69,8 +69,8 @@ const promptUser = () => {
 // TODO: Create a function to initialize app
 const init = () => {
   promptUser()
-    .then((data) => writeFileAsync('README.md', generateMarkdown(data)))
-    .then(() => console.log('Successfully wrote to README.md'))
+    .then((data) => writeFileAsync('genREADME.md', generateMarkdown(data)))
+    .then(() => console.log('Successfully wrote to genREADME.md'))
     .catch((err) => console.error(err));
 };
 // Function call to initialize app
